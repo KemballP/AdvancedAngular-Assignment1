@@ -1,0 +1,29 @@
+
+<!-- used async pipe instead of subscribing -->
+@for (person of personList$|async; track $index) { 
+    <div>
+        <ul>
+            <li>
+                Id: {{person.id}}
+            </li>
+            <li>
+                Name: {{person.firstName}} {{person.lastName}}
+            </li>
+            <li>
+                Address: {{person.address}}
+            </li>
+            <li>
+                City: {{person.city}}
+            </li>
+            <li>
+                Province: {{person.province}}
+            </li>
+            <li>
+                Phone#: {{person.phone}}
+            </li>
+            <li> <!-- used datePipe to ensure the same date format for all entries regardless of JSON file -->
+                Last Updated On: {{person.lastUpdated |date: 'MMM d, y hh:mm:ss'}}
+            </li>
+        </ul>
+    </div>
+}
